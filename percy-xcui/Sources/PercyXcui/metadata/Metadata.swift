@@ -26,13 +26,11 @@ internal class Metadata {
   }
 
   public func deviceScreenWidth() -> CGFloat {
-    let screenBounds = UIScreen.main.bounds
     return CGFloat(mapToDeviceWidth(identifier: deviceName().lowercased())) * UIScreen.main.scale
   }
 
   public func deviceScreenHeight() -> CGFloat {
-    let screenBounds = UIScreen.main.bounds
-    return screenBounds.height * UIScreen.main.scale
+    return CGFloat(mapToDeviceHeight(identifier: deviceName().lowercased())) * UIScreen.main.scale
   }
 
   public func statBarHeight() -> Int {
@@ -196,6 +194,19 @@ internal class Metadata {
       case "iphone 11 pro max": return 418
       case "iphone 11": return 414
       default: return Int(UIScreen.main.bounds.width)
+    }
+  }
+
+  func mapToDeviceHeight(identifier: String) -> Int {
+    switch identifier {
+      case "iphone 14 pro max": return 932
+      case "iphone 14 pro": return 852
+      case "iphone 14 plus", "iphone 12 pro max", "iphone 13 pro max": return 926
+      case "iphone 14", "iphone 13 pro", "iphone 13": return 844
+      case "iphone 13 mini", "iphone 12 mini", "iphone 11 pro": return 812
+      case "iphone 12 pro", "iphone 12": return 844
+      case "iphone 11 pro max", "iphone 11": return 896
+      default: return Int(UIScreen.main.bounds.height)
     }
   }
 }
