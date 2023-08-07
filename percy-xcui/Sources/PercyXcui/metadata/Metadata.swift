@@ -92,7 +92,7 @@ internal class Metadata {
     if device.lowercased().contains("iphone") {
       return 44 // Default status bar height for iPhone
     } else if device.lowercased().contains("ipad") {
-      return 20 // Default status bar height for iPad
+      return 60 // Default status bar height for iPad
     } else {
       print("Unknown device type.")
       return 44 // Default status bar height for unknown devices
