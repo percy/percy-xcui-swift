@@ -42,19 +42,19 @@ final class MetadataTests: XCTestCase {
   }
 
   func testDeviceScreenHeight() throws {
-    let mockMetadata = MockMetadata();
+    let mockMetadata = MockMetadata()
     mockMetadata.deviceName = "iPhone 14 Pro"
     XCTAssertEqual(mockMetadata.deviceScreenHeight(), 852 * Int(UIScreen.main.scale))
   }
 
   func testDeviceScreenWidth() throws {
-    let mockMetadata = MockMetadata();
+    let mockMetadata = MockMetadata()
     mockMetadata.deviceName = "iPhone 14 Pro"
     XCTAssertEqual(mockMetadata.deviceScreenWidth(), 393 * Int(UIScreen.main.scale))
   }
 
   func testStatusBarHeight() throws {
-    let mockMetadata = MockMetadata();
+    let mockMetadata = MockMetadata()
     mockMetadata.deviceName = "iPhone 14 Pro"
     XCTAssertEqual(mockMetadata.statBarHeight(), 54 * Int(UIScreen.main.scale))
     // with options set
