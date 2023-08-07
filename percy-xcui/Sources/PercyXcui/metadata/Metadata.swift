@@ -39,15 +39,13 @@ internal class Metadata {
     if options.statusBarHeight != -1 {
       return options.statusBarHeight
     }
-
-    return Int(CGFloat(readDataFromJSONFile(forKey: deviceName())) * UIScreen.main.scale)
+    return Int(CGFloat(mapToDeviceStatusBar(identifier: deviceName().lowercased())) * UIScreen.main.scale)
   }
 
   public func navBarHeight() -> Int {
     if options.navigationBarHeight != -1 {
       return options.navigationBarHeight
     }
-
     return 0
   }
 
@@ -65,34 +63,11 @@ internal class Metadata {
     }
   }
 
-  func readDataFromJSONFile(forKey key: String) -> Int {
-    guard let filePath = Bundle.main.path(forResource: "devices", ofType: "json") else {
-      print("JSON file not found.")
-      return 200
-    }
-
-    do {
-      let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
-      if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: [String: Any]] {
-        for (deviceKey, deviceData) in json {
-          if key.lowercased() == deviceKey.lowercased() {
-            return deviceData["statusBarHeight"] as? Int ?? getDefaultStatusBarHeight(forDevice: key)
-          }
-        }
-        print("Key not found in JSON.")
-        return getDefaultStatusBarHeight(forDevice: key) // Default status bar height
-      }
-    } catch {
-      print("Error parsing JSON: \(error.localizedDescription)")
-    }
-    return 44 // Default status bar height
-  }
-
   func getDefaultStatusBarHeight(forDevice device: String) -> Int {
     if device.lowercased().contains("iphone") {
       return 44 // Default status bar height for iPhone
     } else if device.lowercased().contains("ipad") {
-      return 60 // Default status bar height for iPad
+      return 20 // Default status bar height for iPad
     } else {
       print("Unknown device type.")
       return 44 // Default status bar height for unknown devices
@@ -195,5 +170,18 @@ internal class Metadata {
       default: return identifier
       }
     #endif
+  }
+
+  func mapToDeviceStatusBar(identifier: String) -> Int {
+    switch identifier {
+      case "iphone 14 pro", "iphone 14 pro max": return 54
+      case "iphone 14", "iphone 14 plus": return 47
+      case "iPhone 13", "iphone 13 pro", "iphone 13 pro max": return 47
+      case "iphone 12", "iphone 12 pro", "iphone 12 pro max": return 47
+      case "iPhone 12 Mini": return 50
+      case "iphone 11": return 48
+      case "iphone 11 pro", "iphone 11 pro max": return 44
+      default: return getDefaultStatusBarHeight(identifier)
+    }
   }
 }

@@ -13,11 +13,7 @@ let package = Package(
     targets: [
         .target(
             name: "PercyXcui",
-            dependencies: [],
-            path: "Sources/PercyXcui",
-            resources: [
-                .copy("Resources/devices.json")
-            ]
+            dependencies: []
         )
     ]
 )
