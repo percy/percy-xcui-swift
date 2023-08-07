@@ -1,0 +1,56 @@
+{
+  "iPhone 14": {
+    "statusBarHeight": 47
+  },
+  "iPhone 14 Pro": {
+    "statusBarHeight": 54
+  },
+  "iPhone 14 Plus": {
+    "statusBarHeight": 47
+  },
+  "iPhone 14 Pro Max": {
+    "statusBarHeight": 54
+  },
+  "iPhone 13": {
+    "statusBarHeight": 47
+  },
+  "iPhone 13 Pro": {
+    "statusBarHeight": 47
+  },
+  "iPhone 13 Pro Max": {
+    "statusBarHeight": 47
+  },
+  "iPhone 12": {
+    "statusBarHeight": 47
+  },
+  "iPhone 12 Pro": {
+    "statusBarHeight": 47
+  },
+  "iPhone 12 Pro Max": {
+    "statusBarHeight": 47
+  },
+  "iPhone 12 Mini": {
+    "statusBarHeight": 50
+  },
+  "iPhone 11": {
+    "statusBarHeight": 48
+  },
+  "iPhone 11 Pro": {
+    "statusBarHeight": 44
+  },
+  "iPhone 11 Pro": {
+    "statusBarHeight": 44
+  },
+  "iPhone 11 Pro Max": {
+    "statusBarHeight": 44
+  },
+  "iPhone 11 Pro Max": {
+    "statusBarHeight": 44
+  },
+  "iPhone 11 Pro Max": {
+    "statusBarHeight": 44
+  },
+  "iPhone 11 Pro Max": {
+    "statusBarHeight": 44
+  }
+}

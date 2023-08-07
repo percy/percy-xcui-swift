@@ -40,7 +40,7 @@ internal class Metadata {
       return options.statusBarHeight
     }
 
-    return Int(UIApplication.shared.statusBarFrame.height * UIScreen.main.scale)
+    return Int(CGFloat(readDataFromJSONFile(forKey: deviceName())) * UIScreen.main.scale)
   }
 
   public func navBarHeight() -> Int {
@@ -62,6 +62,40 @@ internal class Metadata {
     return machineMirror.children.reduce("") { identifier, element in
       guard let value = element.value as? Int8, value != 0 else { return identifier }
       return identifier + String(UnicodeScalar(UInt8(value)))
+    }
+  }
+
+  func readDataFromJSONFile(forKey key: String) -> Int {
+    guard let filePath = Bundle.main.path(forResource: "devices", ofType: "json") else {
+      print("JSON file not found.")
+      return getDefaultStatusBarHeight(forDevice: key)
+    }
+
+    do {
+      let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+      if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: [String: Any]] {
+        for (deviceKey, deviceData) in json {
+          if key.lowercased() == deviceKey.lowercased() {
+            return deviceData["statusBarHeight"] as? Int ?? getDefaultStatusBarHeight(forDevice: key)
+          }
+        }
+        print("Key not found in JSON.")
+        return getDefaultStatusBarHeight(forDevice: key) // Default status bar height
+      }
+    } catch {
+      print("Error parsing JSON: \(error.localizedDescription)")
+    }
+    return 44 // Default status bar height
+  }
+
+  func getDefaultStatusBarHeight(forDevice device: String) -> Int {
+    if device.lowercased().contains("iphone") {
+      return 44 // Default status bar height for iPhone
+    } else if device.lowercased().contains("ipad") {
+      return 20 // Default status bar height for iPad
+    } else {
+      print("Unknown device type.")
+      return 44 // Default status bar height for unknown devices
     }
   }
 
