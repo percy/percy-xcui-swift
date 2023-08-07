@@ -40,7 +40,7 @@ internal class Metadata {
       return options.statusBarHeight
     }
 
-    return Int(CGFloat(readDataFromJSONFile(forKey: deviceName())) * UIScreen.main.scale)
+    return Int(UIApplication.shared.statusBarFrame.height * UIScreen.main.scale)
   }
 
   public func navBarHeight() -> Int {
