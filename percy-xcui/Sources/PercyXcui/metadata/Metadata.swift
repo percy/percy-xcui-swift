@@ -67,7 +67,6 @@ internal class Metadata {
     } else if device.lowercased().contains("ipad") {
       return 20 // Default status bar height for iPad
     } else {
-      print("Unknown device type.")
       return 44 // Default status bar height for unknown devices
     }
   }
@@ -172,41 +171,41 @@ internal class Metadata {
 
   func mapToDeviceStatusBar(identifier: String) -> Int {
     switch identifier {
-      case "iphone 14 pro", "iphone 14 pro max": return 54
-      case "iphone 14", "iphone 14 plus": return 47
-      case "iPhone 13", "iphone 13 pro", "iphone 13 pro max": return 47
-      case "iphone 12", "iphone 12 pro", "iphone 12 pro max": return 47
-      case "iPhone 12 Mini": return 50
-      case "iphone 11": return 48
-      case "iphone 11 pro", "iphone 11 pro max": return 44
-      default: return getDefaultStatusBarHeight(forDevice: identifier)
+    case "iphone 14 pro", "iphone 14 pro max": return 54
+    case "iphone 14", "iphone 14 plus": return 47
+    case "iPhone 13", "iphone 13 pro", "iphone 13 pro max": return 47
+    case "iphone 12", "iphone 12 pro", "iphone 12 pro max": return 47
+    case "iPhone 12 Mini": return 50
+    case "iphone 11": return 48
+    case "iphone 11 pro", "iphone 11 pro max": return 44
+    default: return getDefaultStatusBarHeight(forDevice: identifier)
     }
   }
 
   func mapToDeviceWidth(identifier: String) -> Int {
     switch identifier {
-      case "iphone 14 pro max": return 430
-      case "iphone 14 pro": return 393
-      case "iphone 14 plus", "iphone 12 pro max", "iphone 13 pro max": return 428
-      case "iphone 14", "iphone 13 pro", "iphone 13": return 390
-      case "iphone 13 mini", "iphone 12 mini", "iphone 11 pro": return 375
-      case "iphone 12 pro", "iphone 12": return 390
-      case "iphone 11 pro max": return 418
-      case "iphone 11": return 414
-      default: return Int(UIScreen.main.bounds.width)
+    case "iphone 14 pro max": return 430
+    case "iphone 14 pro": return 393
+    case "iphone 14 plus", "iphone 12 pro max", "iphone 13 pro max": return 428
+    case "iphone 14", "iphone 13 pro", "iphone 13": return 390
+    case "iphone 13 mini", "iphone 12 mini", "iphone 11 pro": return 375
+    case "iphone 12 pro", "iphone 12": return 390
+    case "iphone 11 pro max": return 418
+    case "iphone 11": return 414
+    default: return Int(UIScreen.main.bounds.width)
     }
   }
 
   func mapToDeviceHeight(identifier: String) -> Int {
     switch identifier {
-      case "iphone 14 pro max": return 932
-      case "iphone 14 pro": return 852
-      case "iphone 14 plus", "iphone 12 pro max", "iphone 13 pro max": return 926
-      case "iphone 14", "iphone 13 pro", "iphone 13": return 844
-      case "iphone 13 mini", "iphone 12 mini", "iphone 11 pro": return 812
-      case "iphone 12 pro", "iphone 12": return 844
-      case "iphone 11 pro max", "iphone 11": return 896
-      default: return Int(UIScreen.main.bounds.height)
+    case "iphone 14 pro max": return 932
+    case "iphone 14 pro": return 852
+    case "iphone 14 plus", "iphone 12 pro max", "iphone 13 pro max": return 926
+    case "iphone 14", "iphone 13 pro", "iphone 13": return 844
+    case "iphone 13 mini", "iphone 12 mini", "iphone 11 pro": return 812
+    case "iphone 12 pro", "iphone 12": return 844
+    case "iphone 11 pro max", "iphone 11": return 896
+    default: return Int(UIScreen.main.bounds.height)
     }
   }
 }

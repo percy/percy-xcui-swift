@@ -5,6 +5,13 @@ import XCTest
 final class MetadataTests: XCTestCase {
   var meta: Metadata = Metadata()
 
+  class MockMetadata: Metadata {
+    var deviceName: String = "iPhone 14 Pro"
+    override func deviceName() -> String {
+      return deviceName
+    }
+  }
+
   override func setUp() {
     meta = Metadata()
   }
@@ -35,13 +42,21 @@ final class MetadataTests: XCTestCase {
   }
 
   func testDeviceScreenHeight() throws {
-    XCTAssertEqual(meta.deviceScreenHeight(), UIScreen.main.bounds.height * UIScreen.main.scale)
+    let mockMetadata = MockMetadata();
+    mockMetadata.deviceName = "iPhone 14 Pro"
+    XCTAssertEqual(mockMetadata.deviceScreenHeight(), 852 * Int(UIScreen.main.scale))
+  }
+
+  func testDeviceScreenWidth() throws {
+    let mockMetadata = MockMetadata();
+    mockMetadata.deviceName = "iPhone 14 Pro"
+    XCTAssertEqual(mockMetadata.deviceScreenWidth(), 393 * Int(UIScreen.main.scale))
   }
 
   func testStatusBarHeight() throws {
-    XCTAssertEqual(
-      meta.statBarHeight(), Int(UIApplication.shared.statusBarFrame.height * UIScreen.main.scale))
-
+    let mockMetadata = MockMetadata();
+    mockMetadata.deviceName = "iPhone 14 Pro"
+    XCTAssertEqual(mockMetadata.statBarHeight(), 54 * Int(UIScreen.main.scale))
     // with options set
     let options = ScreenshotOptions()
     options.statusBarHeight = 100
@@ -61,5 +76,23 @@ final class MetadataTests: XCTestCase {
 
   func testDeviceName() throws {
     XCTAssertTrue(meta.deviceName().contains("iPhone"))
+  }
+
+  func testMapToDeviceHeight() throws {
+    XCTAssertTrue(meta.mapToDeviceHeight("iphone 14 pro max"), 932)
+  }
+
+  func testMapToDeviceWidth() throws {
+    XCTAssertTrue(meta.mapToDeviceWidth("iphone 14 pro max"), 430)
+  }
+
+  func testMapToDeviceStatusBar() throws {
+    XCTAssertTrue(meta.mapToDeviceWidth("iphone 14 pro max"), 54)
+  }
+
+  func testGetDefaultStatusBarHeight() throws {
+    XCTAssertEqual(meta.getDefaultStatusBarHeight("ipad"), 20)
+    XCTAssertEqual(meta.getDefaultStatusBarHeight("iphone"), 44)
+    XCTAssertEqual(meta.getDefaultStatusBarHeight("itest"), 44)
   }
 }
