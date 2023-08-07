@@ -14,6 +14,10 @@ let package = Package(
         .target(
             name: "PercyXcui",
             dependencies: [],
-            resources: [.process("Resources")])
+            path: "Sources/PercyXcui",
+            resources: [
+                .copy("Resources/devices.json")
+            ]
+        )
     ]
 )
