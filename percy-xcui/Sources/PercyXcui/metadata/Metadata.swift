@@ -66,9 +66,9 @@ internal class Metadata {
   }
 
   func readDataFromJSONFile(forKey key: String) -> Int {
-    guard let filePath = Bundle.module.url(forResource: "devices", withExtension: "json") else {
+    guard let filePath = Bundle.main.path(forResource: "devices", ofType: "json") else {
       print("JSON file not found.")
-      return 100
+      return 200
     }
 
     do {
