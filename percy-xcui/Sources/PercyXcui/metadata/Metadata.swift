@@ -181,7 +181,7 @@ internal class Metadata {
       case "iPhone 12 Mini": return 50
       case "iphone 11": return 48
       case "iphone 11 pro", "iphone 11 pro max": return 44
-      default: return getDefaultStatusBarHeight(identifier)
+      default: return getDefaultStatusBarHeight(forDevice: identifier)
     }
   }
 }
