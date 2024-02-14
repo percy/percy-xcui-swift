@@ -3,7 +3,7 @@ import UIKit
 import XCTest
 
 public class ScreenshotController: UIViewController {
-  override public func viewDidLoad() {
+  public func viewDidLoad() {
     super.viewDidLoad()
   }
 
