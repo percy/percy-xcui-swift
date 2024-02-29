@@ -3,7 +3,7 @@
     {
       "identity" : "hippolyte",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:JanGorman/Hippolyte.git",
+      "location" : "https://github.com/JanGorman/Hippolyte.git",
       "state" : {
         "revision" : "5b393c644c84877f36e461ae6d8209d35161e098",
         "version" : "1.4.1"

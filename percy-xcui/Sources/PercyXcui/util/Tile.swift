@@ -34,7 +34,7 @@ public class Tile {
       ]
       tileJson.append(jsonObject)
     }
-    let valid: Bool = JSONSerialization.isValidJSONObject(tileJson)
+//    let valid: Bool = JSONSerialization.isValidJSONObject(tileJson)
     return tileJson
   }
 }

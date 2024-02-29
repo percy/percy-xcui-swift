@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		081AF18A29C45C03009B9DB6 /* percy-xcui in Sources */ = {isa = PBXBuildFile; fileRef = 08BF9C1C29C45AA70053ECAC /* percy-xcui */; };
 		081AF18C29C45C0F009B9DB6 /* PercyXcui in Frameworks */ = {isa = PBXBuildFile; productRef = 081AF18B29C45C0F009B9DB6 /* PercyXcui */; };
-		082BDAED29C208F00036F0A1 /* Hippolyte in Frameworks */ = {isa = PBXBuildFile; productRef = 082BDAEC29C208F00036F0A1 /* Hippolyte */; };
-		082BDAF129C209340036F0A1 /* Hippolyte in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 082BDAF029C209340036F0A1 /* Hippolyte */; };
 		082BDAF429C20C330036F0A1 /* NetworkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BDAF329C20C330036F0A1 /* NetworkHelpers.swift */; };
 		082BDAF629C2ED1D0036F0A1 /* AppPercyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BDAF529C2ED1D0036F0A1 /* AppPercyTests.swift */; };
 		08B5090F29B8AA6D00F9B864 /* XcuiSdkTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5090E29B8AA6D00F9B864 /* XcuiSdkTestAppApp.swift */; };
@@ -20,6 +18,7 @@
 		08B5092A29B8AA7000F9B864 /* XcuiSdkTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5092929B8AA7000F9B864 /* XcuiSdkTestAppUITests.swift */; };
 		08D1350729C0909C0061BABA /* MetadataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1350629C0909C0061BABA /* MetadataTests.swift */; };
 		08D1350A29C0A84D0061BABA /* GenericProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1350929C0A84D0061BABA /* GenericProviderTests.swift */; };
+		D5F1ABEA2B90E763003DCC29 /* Hippolyte in Frameworks */ = {isa = PBXBuildFile; productRef = D5F1ABE92B90E763003DCC29 /* Hippolyte */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082BDAED29C208F00036F0A1 /* Hippolyte in Frameworks */,
+				D5F1ABEA2B90E763003DCC29 /* Hippolyte in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082BDAF129C209340036F0A1 /* Hippolyte in Frameworks */,
 				081AF18C29C45C0F009B9DB6 /* PercyXcui in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,7 +181,7 @@
 			);
 			name = "percy-xcui-sdk";
 			packageProductDependencies = (
-				082BDAEC29C208F00036F0A1 /* Hippolyte */,
+				D5F1ABE92B90E763003DCC29 /* Hippolyte */,
 			);
 			productName = "xcui-sdk-test-app";
 			productReference = 08B5090B29B8AA6D00F9B864 /* percy-xcui-sdk.app */;
@@ -206,7 +204,6 @@
 			);
 			name = "percy-xcui-sdkUITests";
 			packageProductDependencies = (
-				082BDAF029C209340036F0A1 /* Hippolyte */,
 				081AF18B29C45C0F009B9DB6 /* PercyXcui */,
 			);
 			productName = "xcui-sdk-test-appUITests";
@@ -242,7 +239,7 @@
 			);
 			mainGroup = 08B5090229B8AA6D00F9B864;
 			packageReferences = (
-				082BDAEB29C208F00036F0A1 /* XCRemoteSwiftPackageReference "Hippolyte" */,
+				D5F1ABE82B90E763003DCC29 /* XCRemoteSwiftPackageReference "Hippolyte" */,
 			);
 			productRefGroup = 08B5090C29B8AA6D00F9B864 /* Products */;
 			projectDirPath = "";
@@ -439,7 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"xcui-sdk-test-app/Preview Content\"";
-				DEVELOPMENT_TEAM = 59B34A37Y4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -468,7 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"xcui-sdk-test-app/Preview Content\"";
-				DEVELOPMENT_TEAM = 59B34A37Y4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -494,7 +491,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 59B34A37Y4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ninad.xcui-sdk-test-appUITests";
@@ -512,7 +509,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 59B34A37Y4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ninad.xcui-sdk-test-appUITests";
@@ -566,6 +563,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		D5F1ABE82B90E763003DCC29 /* XCRemoteSwiftPackageReference "Hippolyte" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JanGorman/Hippolyte.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -577,19 +582,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = PercyXcui;
 		};
-		082BDAEC29C208F00036F0A1 /* Hippolyte */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 082BDAEB29C208F00036F0A1 /* XCRemoteSwiftPackageReference "Hippolyte" */;
-			productName = Hippolyte;
-		};
 		082BDAEE29C209000036F0A1 /* Hippolyte */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 082BDAEB29C208F00036F0A1 /* XCRemoteSwiftPackageReference "Hippolyte" */;
 			productName = Hippolyte;
 		};
-		082BDAF029C209340036F0A1 /* Hippolyte */ = {
+		D5F1ABE92B90E763003DCC29 /* Hippolyte */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 082BDAEB29C208F00036F0A1 /* XCRemoteSwiftPackageReference "Hippolyte" */;
+			package = D5F1ABE82B90E763003DCC29 /* XCRemoteSwiftPackageReference "Hippolyte" */;
 			productName = Hippolyte;
 		};
 /* End XCSwiftPackageProductDependency section */
