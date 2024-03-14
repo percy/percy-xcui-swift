@@ -60,23 +60,23 @@ final class AppPercyTests: XCTestCase {
     AppPercy.ignoreErrors = true
   }
 
-	func testScreenshotForDifferentHostName() throws {
+  func testScreenshotForDifferentHostName() throws {
     AppPercy.percyCLIHostname = "app-percy.cli"
-		AppPercy.percyCLIPort = 5448
-		percy = AppPercy()
-		// reset network stub
-		NetworkHelpers.stop()
-		NetworkHelpers.start(requests: [
-			NetworkHelpers.stubHealthcheck(success: true, percyCLIHostname: "app-percy.cli", percyCLIPort: 5448),
-			NetworkHelpers.stubPostComparison(success: true, percyCLIHostname: "app-percy.cli", percyCLIPort: 5448)
-		])
+    AppPercy.percyCLIPort = 5448
+    percy = AppPercy()
+    // reset network stub
+    NetworkHelpers.stop()
+    NetworkHelpers.start(requests: [
+      NetworkHelpers.stubHealthcheck(success: true, percyCLIHostname: "app-percy.cli", percyCLIPort: 5448),
+      NetworkHelpers.stubPostComparison(success: true, percyCLIHostname: "app-percy.cli", percyCLIPort: 5448)
+    ])
 
-		// does not throw
-		try percy.screenshot(name: "abc")
+    // does not throw
+    try percy.screenshot(name: "abc")
 
-		// reset
-		AppPercy.ignoreErrors = true
-		AppPercy.percyCLIHostname = "percy.cli"
-		AppPercy.percyCLIPort = 5338
-	}
+    // reset
+    AppPercy.ignoreErrors = true
+    AppPercy.percyCLIHostname = "percy.cli"
+    AppPercy.percyCLIPort = 5338
+  }
 }
