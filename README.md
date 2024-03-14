@@ -36,8 +36,3 @@ This repo is devided into following parts.
     </tr>
   <tbody>
 </table>
-
-<!-- <img src="https://github.com/pjcook.png" width="60px;"/><br /><sub><a href="https://github.com/pjcook">pjcook</a></sub></img>
-
-<img src="https://github.com/sampettersson.png" width="60px;"/><br /><sub><a href="https://github.com/sampettersson">sampettersson</a></sub></img>
-  -->
