@@ -10,9 +10,9 @@ class NetworkHelpers {
     Hippolyte.shared.start()
   }
 
-	static func stubHealthcheck(
+  static func stubHealthcheck(
     success: Bool = true, percyCLIHostname: String = "percy.cli", percyCLIPort: Int = 5338
-	) -> StubRequest {
+  ) -> StubRequest {
     let responseCode = success ? 204 : 500
     let response = StubResponse.Builder()
       .stubResponse(withStatusCode: responseCode)
@@ -27,7 +27,7 @@ class NetworkHelpers {
 
   static func stubPostComparison(
     success: Bool = true, percyCLIHostname: String = "percy.cli", percyCLIPort: Int = 5338
-	) -> StubRequest {
+  ) -> StubRequest {
     let responseCode = success ? 200 : 500
     let response = StubResponse.Builder()
       .stubResponse(withStatusCode: responseCode)
