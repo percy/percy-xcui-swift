@@ -2,7 +2,7 @@ import Foundation
 
 public class CliWrapper {
   // swiftlint:disable:next identifier_name
-  var PERCY_SERVER_ADDRESS: String = "http://percy.cli:5338"
+  var PERCY_SERVER_ADDRESS: String = "http://\(AppPercy.percyCLIHostname):\(AppPercy.percyCLIPort)"
 
   public func healthcheck() -> Bool {
     var ret: Bool = false

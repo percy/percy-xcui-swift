@@ -3,7 +3,8 @@ import UIKit
 import XCTest
 
 public class ScreenshotController: UIViewController {
-  public func viewDidLoad() {
+  // swiftlint:disable:next unneeded_override
+  public override func viewDidLoad() {
     super.viewDidLoad()
   }
 

@@ -12,3 +12,12 @@ This repo is devided into following parts.
 ## Toolchain
 - Formatter: `brew install swift-format` [ used along with vscode extenstion `apple-swift-format`]
 - Linter: `brew install swiftlint` [ used along with vscode extenstion `SwiftLint`]
+
+## Configuration
+- `Percy CLI HostName and Port` - By default percy cli hostname is `percy.cli` and port is `5338`
+    - Below is the code snippet to change this.
+  ```
+    AppPercy.percyCLIHostname = "app-percy.cli"
+    AppPercy.percyCLIPort = 5448
+    var percy = AppPercy()
+  ``` 

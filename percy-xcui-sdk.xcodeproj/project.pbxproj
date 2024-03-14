@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,8 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		082BDAF329C20C330036F0A1 /* NetworkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelpers.swift; sourceTree = "<group>"; };
-		082BDAF529C2ED1D0036F0A1 /* AppPercyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPercyTests.swift; sourceTree = "<group>"; };
+		082BDAF329C20C330036F0A1 /* NetworkHelpers.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = NetworkHelpers.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
+		082BDAF529C2ED1D0036F0A1 /* AppPercyTests.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppPercyTests.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		08B5090B29B8AA6D00F9B864 /* percy-xcui-sdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "percy-xcui-sdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B5090E29B8AA6D00F9B864 /* XcuiSdkTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcuiSdkTestAppApp.swift; sourceTree = "<group>"; };
 		08B5091029B8AA6D00F9B864 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,8 +43,8 @@
 		08B5092529B8AA7000F9B864 /* percy-xcui-sdkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "percy-xcui-sdkUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B5092929B8AA7000F9B864 /* XcuiSdkTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcuiSdkTestAppUITests.swift; sourceTree = "<group>"; };
 		08BF9C1C29C45AA70053ECAC /* percy-xcui */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "percy-xcui"; sourceTree = "<group>"; };
-		08D1350629C0909C0061BABA /* MetadataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataTests.swift; sourceTree = "<group>"; };
-		08D1350929C0A84D0061BABA /* GenericProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericProviderTests.swift; sourceTree = "<group>"; };
+		08D1350629C0909C0061BABA /* MetadataTests.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = MetadataTests.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
+		08D1350929C0A84D0061BABA /* GenericProviderTests.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = GenericProviderTests.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +233,7 @@
 				};
 			};
 			buildConfigurationList = 08B5090629B8AA6D00F9B864 /* Build configuration list for PBXProject "percy-xcui-sdk" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -439,7 +439,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"xcui-sdk-test-app/Preview Content\"";
-				DEVELOPMENT_TEAM = 59B34A37Y4;
+				DEVELOPMENT_TEAM = 38BT39725L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -468,7 +468,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"xcui-sdk-test-app/Preview Content\"";
-				DEVELOPMENT_TEAM = 59B34A37Y4;
+				DEVELOPMENT_TEAM = 38BT39725L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -494,7 +494,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 59B34A37Y4;
+				DEVELOPMENT_TEAM = 38BT39725L;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ninad.xcui-sdk-test-appUITests";
@@ -512,7 +512,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 59B34A37Y4;
+				DEVELOPMENT_TEAM = 38BT39725L;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ninad.xcui-sdk-test-appUITests";
