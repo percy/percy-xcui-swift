@@ -20,4 +20,24 @@ This repo is devided into following parts.
     AppPercy.percyCLIHostname = "app-percy.cli"
     AppPercy.percyCLIPort = 5448
     var percy = AppPercy()
-  ``` 
+  ```
+
+## External Contributor
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/pjcook"><img src="https://avatars.githubusercontent.com/u/1152532?v=3?s=100" width="100px;" alt="PJ"/><br /><sub><b>PJ</b></sub></a><br />
+      </td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sampettersson"><img src="https://avatars.githubusercontent.com/u/5459507?v=3?s=100" width="100px;" alt="Sam Pettersson
+"/><br /><sub><b>Sam Pettersson
+</b></sub></a><br />
+      </td>
+    </tr>
+  <tbody>
+</table>
+
+<!-- <img src="https://github.com/pjcook.png" width="60px;"/><br /><sub><a href="https://github.com/pjcook">pjcook</a></sub></img>
+
+<img src="https://github.com/sampettersson.png" width="60px;"/><br /><sub><a href="https://github.com/sampettersson">sampettersson</a></sub></img>
+  -->
