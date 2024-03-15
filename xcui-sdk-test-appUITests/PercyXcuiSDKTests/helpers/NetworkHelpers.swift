@@ -10,20 +10,24 @@ class NetworkHelpers {
     Hippolyte.shared.start()
   }
 
-  static func stubHealthcheck(success: Bool = true) -> StubRequest {
+  static func stubHealthcheck(
+    success: Bool = true, percyCLIHostname: String = "percy.cli", percyCLIPort: Int = 5338
+  ) -> StubRequest {
     let responseCode = success ? 204 : 500
     let response = StubResponse.Builder()
       .stubResponse(withStatusCode: responseCode)
       .build()
     // The request that will match this URL and return the stub response
     let request = StubRequest.Builder()
-      .stubRequest(withMethod: .GET, url: URL(string: "http://percy.cli:5338/percy/healthcheck")!)
+      .stubRequest(withMethod: .GET, url: URL(string: "http://\(percyCLIHostname):\(percyCLIPort)/percy/healthcheck")!)
       .addResponse(response)
       .build()
     return request
   }
 
-  static func stubPostComparison(success: Bool = true) -> StubRequest {
+  static func stubPostComparison(
+    success: Bool = true, percyCLIHostname: String = "percy.cli", percyCLIPort: Int = 5338
+  ) -> StubRequest {
     let responseCode = success ? 200 : 500
     let response = StubResponse.Builder()
       .stubResponse(withStatusCode: responseCode)
@@ -31,7 +35,7 @@ class NetworkHelpers {
       .build()
     // The request that will match this URL and return the stub response
     let request = StubRequest.Builder()
-      .stubRequest(withMethod: .POST, url: URL(string: "http://percy.cli:5338/percy/comparison")!)
+      .stubRequest(withMethod: .POST, url: URL(string: "http://\(percyCLIHostname):\(percyCLIPort)/percy/comparison")!)
       .addResponse(response)
       .build()
     return request
