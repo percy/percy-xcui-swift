@@ -22,7 +22,7 @@ This repo is devided into following parts.
     var percy = AppPercy()
   ```
 
-## External Contributor
+## External Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <table>
   <tbody>
