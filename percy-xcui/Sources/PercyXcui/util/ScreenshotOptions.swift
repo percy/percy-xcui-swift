@@ -6,6 +6,9 @@ public class ScreenshotOptions {
 
   public var fullScreen: Bool = false
 
+  public var testCase: String? = nil
+  public var labels: String? = nil
+
   public init() {
   }
 }

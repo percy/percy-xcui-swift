@@ -53,7 +53,7 @@ public class CliWrapper {
   }
 
   // swiftlint:disable:next function_body_length
-  public func postScreenshot(name: String, tag: [String: Any], tiles: [Tile]) throws -> [String:
+  public func postScreenshot(name: String, tag: [String: Any], tiles: [Tile], testCase: String, labels: String) throws -> [String:
     Any] {
     var ret: [String: Any] = [String: Any]()
     let url: URL = URL(string: PERCY_SERVER_ADDRESS + "/percy/comparison")!
@@ -62,6 +62,8 @@ public class CliWrapper {
       "name": name,
       "tag": tag,
       "tiles": Tile.getTileJSON(tiles: tiles),
+      "testCase": testCase,
+      "labels": labels,
       "clientInfo": "XCUI", "environmentInfo": "XCUI"
     ]
 
