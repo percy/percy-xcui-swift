@@ -16,7 +16,13 @@ public class GenericProvider {
     let tiles: [Tile] = try captureTiles()
     let testCase: String? = options.testCase
     let labels: String? = options.labels
-    let response: [String: Any] = try cliWrapper.postScreenshot(name: name, tag: tag, tiles: tiles, testCase: testCase, labels: labels)
+    let response: [String: Any] = try cliWrapper.postScreenshot(
+      name: name,
+      tag: tag,
+      tiles: tiles,
+      testCase: testCase,
+      labels: labels
+    )
     Log.info(
       msg: "Please check screenshot `\(name)` : \(response["link"] ?? "Error link not found")")
   }
