@@ -57,8 +57,8 @@ public class CliWrapper {
     name: String,
     tag: [String: Any],
     tiles: [Tile],
-    testCase: String,
-    labels: String
+    testCase: String? = nil,
+    labels: String? = nil
   ) throws -> [String: Any] {
     var ret: [String: Any] = [String: Any]()
     let url: URL = URL(string: PERCY_SERVER_ADDRESS + "/percy/comparison")!
