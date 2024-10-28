@@ -53,8 +53,13 @@ public class CliWrapper {
   }
 
   // swiftlint:disable:next function_body_length
-  public func postScreenshot(name: String, tag: [String: Any], tiles: [Tile]) throws -> [String:
-    Any] {
+  public func postScreenshot(
+    name: String,
+    tag: [String: Any],
+    tiles: [Tile],
+    testCase: String? = nil,
+    labels: String? = nil
+  ) throws -> [String: Any] {
     var ret: [String: Any] = [String: Any]()
     let url: URL = URL(string: PERCY_SERVER_ADDRESS + "/percy/comparison")!
 
@@ -62,6 +67,8 @@ public class CliWrapper {
       "name": name,
       "tag": tag,
       "tiles": Tile.getTileJSON(tiles: tiles),
+      "testCase": testCase,
+      "labels": labels,
       "clientInfo": "XCUI", "environmentInfo": "XCUI"
     ]
 
@@ -102,7 +109,12 @@ public class CliWrapper {
       }
 
       do {
-        Log.debug(msg: "Comparison post response: " + String(decoding: responseData, as: UTF8.self))
+        if let responseString = String(data: responseData, encoding: .utf8) {
+          Log.debug(msg: "Comparison post response: \(responseString)")
+        } else {
+          Log.debug(msg: "Comparison post response: Unable to decode response data as UTF-8 string")
+        }
+
         if let jsonResponse: [String: Any] = try JSONSerialization.jsonObject(
           with: responseData, options: .mutableContainers) as? [String: Any] {
           ret = jsonResponse

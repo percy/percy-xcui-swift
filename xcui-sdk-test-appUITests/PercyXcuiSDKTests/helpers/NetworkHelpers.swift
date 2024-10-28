@@ -31,8 +31,9 @@ class NetworkHelpers {
     let responseCode = success ? 200 : 500
     let response = StubResponse.Builder()
       .stubResponse(withStatusCode: responseCode)
-      .addBody("{\"link\": \"https://some-link\"}".data(using: .utf8)!)
+      .addBody(Data("{\"link\": \"https://some-link\"}".utf8))
       .build()
+
     // The request that will match this URL and return the stub response
     let request = StubRequest.Builder()
       .stubRequest(withMethod: .POST, url: URL(string: "http://\(percyCLIHostname):\(percyCLIPort)/percy/comparison")!)
