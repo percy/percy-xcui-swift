@@ -109,7 +109,12 @@ public class CliWrapper {
       }
 
       do {
-        Log.debug(msg: "Comparison post response: " + String(decoding: responseData, as: UTF8.self))
+        if let responseString = String(data: responseData, encoding: .utf8) {
+          Log.debug(msg: "Comparison post response: \(responseString)")
+        } else {
+          Log.debug(msg: "Comparison post response: Unable to decode response data as UTF-8 string")
+        }
+
         if let jsonResponse: [String: Any] = try JSONSerialization.jsonObject(
           with: responseData, options: .mutableContainers) as? [String: Any] {
           ret = jsonResponse
