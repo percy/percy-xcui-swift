@@ -2,10 +2,10 @@ import Foundation
 
 public class AppPercy {
   // global config options
-  static var ignoreErrors = true
-  static var percyCLIHostname = "percy.cli"
-  static var percyCLIPort = 5338
-  static var allowedDevices = [String]()
+  public static var ignoreErrors = true
+  public static var percyCLIHostname = "percy.cli"
+  public static var percyCLIPort = 5338
+  public static var allowedDevices = [String]()
   // swiftlint:disable:next identifier_name
   static var _allowedDevicesMessageShown: Bool = false
 
