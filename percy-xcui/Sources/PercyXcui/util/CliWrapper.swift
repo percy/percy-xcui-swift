@@ -17,7 +17,7 @@ public class CliWrapper {
       with: request,
       completionHandler: { (_: Data?, response: URLResponse?, error: Error?) in
         defer { sem.signal() }
-        if let error: Error = error {
+        if let error {
           Log.error(msg: "Error took place \(error)")
           return
         }
