@@ -28,10 +28,16 @@ public class AppPercy {
 
     public func screenshot(name: String, options: ScreenshotOptions = ScreenshotOptions()) throws {
         guard isPercyEnabled else {
-            throw AppPercyError.percyNotEnabled
+            if !AppPercy.ignoreErrors {
+                throw AppPercyError.percyNotEnabled
+            }
+            return
         }
         guard isDeviceAllowed() else {
-            throw AppPercyError.deviceNotAllowed
+            if !AppPercy.ignoreErrors {
+                throw AppPercyError.deviceNotAllowed
+            }
+            return
         }
 
         let provider: GenericProvider = GenericProvider()
