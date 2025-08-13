@@ -140,6 +140,8 @@ public class CliWrapper {
     @available(iOS 15.0, *)
     public func stop() async throws {
         let url: URL = URL(string: PERCY_SERVER_ADDRESS + "/percy/stop")!
-        _ = try await URLSession.shared.data(from: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        _ = try await URLSession.shared.data(for: request)
     }
 }
