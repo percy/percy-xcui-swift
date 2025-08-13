@@ -51,6 +51,11 @@ public class AppPercy {
         }
     }
 
+    @available(iOS 15.0, *)
+    public func stop() async {
+        try? await cliWrapper.stop()
+    }
+
     private func isDeviceAllowed() -> Bool {
         if AppPercy.allowedDevices.isEmpty {
             return true
