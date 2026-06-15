@@ -7,7 +7,11 @@ import Foundation
 /// keyed by URL path. Registering a global `URLProtocol` is the supported way
 /// to stub `URLSession.shared` without adding a third-party HTTP-stub
 /// dependency, and lets the unit suite exercise `CliWrapper` on the macOS host.
-final class StubURLProtocol: URLProtocol {
+///
+/// Not marked `final`: it overrides `URLProtocol`'s required `class func`s
+/// (`canInit`/`canonicalRequest`), which cannot be expressed as `static func`,
+/// and SwiftLint's `static_over_final_class` rule would otherwise flag them.
+class StubURLProtocol: URLProtocol {
   /// A canned outcome for a single request.
   struct Stub {
     var statusCode: Int

@@ -51,7 +51,10 @@ echo "Running unit tests with code coverage..."
 # --no-parallel: the suites share process-global state (a registered
 # URLProtocol stub and AppPercy's static config), so cross-suite parallelism
 # must be disabled for deterministic results.
-swift test --enable-code-coverage --no-parallel "${EXTRA_FLAGS[@]}"
+# Use ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"} (not "${EXTRA_FLAGS[@]}") so an empty
+# array under `set -u` expands to nothing instead of erroring "unbound variable"
+# on macOS bash 3.2 — the full-Xcode CI runner leaves EXTRA_FLAGS empty.
+swift test --enable-code-coverage --no-parallel ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"}
 
 BIN_PATH="$(swift build --show-bin-path)"
 PROFDATA="$BIN_PATH/codecov/default.profdata"
