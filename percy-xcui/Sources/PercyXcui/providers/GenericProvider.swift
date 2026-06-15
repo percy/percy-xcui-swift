@@ -1,5 +1,7 @@
 import Foundation
-import UIKit
+#if canImport(UIKit)
+  import UIKit
+#endif
 
 public class GenericProvider {
   let cliWrapper: CliWrapper

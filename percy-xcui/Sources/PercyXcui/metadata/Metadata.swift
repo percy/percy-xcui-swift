@@ -1,6 +1,8 @@
 import Foundation
-import UIKit
-import XCTest
+#if canImport(UIKit)
+  import UIKit
+  import XCTest
+#endif
 
 internal class Metadata {
   var options: ScreenshotOptions
@@ -9,35 +11,52 @@ internal class Metadata {
     self.options = options
   }
 
+  // The device screen scale. On iOS this is `UIScreen.main.scale`; on a
+  // non-UIKit host (used only by the unit-test suite) it falls back to 1 so
+  // the pure scaling logic remains exercisable. Behaviour on iOS is unchanged.
+  func screenScale() -> CGFloat {
+    #if canImport(UIKit)
+      return UIScreen.main.scale
+    #else
+      return 1
+    #endif
+  }
+
   public func osName() -> String {
     return "iOS"
   }
 
   public func platformVersion() -> String {
-    return String(UIDevice.current.systemVersion.split(separator: ".").first ?? "")
+    #if canImport(UIKit)
+      return String(UIDevice.current.systemVersion.split(separator: ".").first ?? "")
+    #else
+      return String(ProcessInfo.processInfo.operatingSystemVersion.majorVersion)
+    #endif
   }
 
   public func orientation() -> String {
-    if XCUIDevice.shared.orientation.isLandscape {
-      return "landscape"
-    }
+    #if canImport(UIKit)
+      if XCUIDevice.shared.orientation.isLandscape {
+        return "landscape"
+      }
+    #endif
     // Note: we return default portait as sometimes orientation is unknown/flat as well
     return "portrait"
   }
 
   public func deviceScreenWidth() -> CGFloat {
-    return CGFloat(mapToDeviceWidth(identifier: deviceName().lowercased())) * UIScreen.main.scale
+    return CGFloat(mapToDeviceWidth(identifier: deviceName().lowercased())) * screenScale()
   }
 
   public func deviceScreenHeight() -> CGFloat {
-    return CGFloat(mapToDeviceHeight(identifier: deviceName().lowercased())) * UIScreen.main.scale
+    return CGFloat(mapToDeviceHeight(identifier: deviceName().lowercased())) * screenScale()
   }
 
   public func statBarHeight() -> Int {
     if options.statusBarHeight != -1 {
       return options.statusBarHeight
     }
-    return Int(CGFloat(mapToDeviceStatusBar(identifier: deviceName().lowercased())) * UIScreen.main.scale)
+    return Int(CGFloat(mapToDeviceStatusBar(identifier: deviceName().lowercased())) * screenScale())
   }
 
   public func navBarHeight() -> Int {
@@ -73,7 +92,7 @@ internal class Metadata {
 
   // swiftlint:disable:next cyclomatic_complexity function_body_length
   func mapToDevice(identifier: String) -> String {
-    #if os(iOS)
+    #if os(iOS) || (!os(tvOS) && !os(watchOS))
       switch identifier {
       case "iPod5,1": return "iPod touch (5th generation)"
       case "iPod7,1": return "iPod touch (6th generation)"
@@ -192,7 +211,12 @@ internal class Metadata {
     case "iphone 12 pro", "iphone 12": return 390
     case "iphone 11 pro max": return 418
     case "iphone 11": return 414
-    default: return Int(UIScreen.main.bounds.width)
+    default:
+      #if canImport(UIKit)
+        return Int(UIScreen.main.bounds.width)
+      #else
+        return 0
+      #endif
     }
   }
 
@@ -205,7 +229,12 @@ internal class Metadata {
     case "iphone 13 mini", "iphone 12 mini", "iphone 11 pro": return 812
     case "iphone 12 pro", "iphone 12": return 844
     case "iphone 11 pro max", "iphone 11": return 896
-    default: return Int(UIScreen.main.bounds.height)
+    default:
+      #if canImport(UIKit)
+        return Int(UIScreen.main.bounds.height)
+      #else
+        return 0
+      #endif
     }
   }
 }

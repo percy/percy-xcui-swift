@@ -1,0 +1,63 @@
+name: Test & Coverage
+
+on:
+  push:
+    branches: ["master", "main"]
+  pull_request:
+    branches: ["master", "main"]
+
+jobs:
+  # Blocking gate: builds the SwiftPM package on the macOS host and runs the
+  # Swift Testing unit suite with code coverage. Covers all of the SDK's
+  # host-testable logic (device mapping, JSON building, CLI-wrapper HTTP,
+  # logging, options, errors). The coverage floor is enforced by the script.
+  unit-coverage:
+    name: Unit tests + coverage gate
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show Swift / Xcode versions
+        run: |
+          swift --version
+          xcodebuild -version || true
+
+      - name: Build package
+        run: swift build
+
+      - name: Run unit tests + enforce coverage floor
+        run: ./Scripts/coverage.sh
+
+  # Informational (non-blocking): exercises the iOS-runtime paths that cannot
+  # run on the host -- the screenshot-capture pipeline in GenericProvider /
+  # ScreenshotController -- via the existing XCUITests on an iOS simulator.
+  # Marked continue-on-error because simulator availability and SPM dependency
+  # resolution for the .xcodeproj can vary across runner images; it raises real
+  # coverage toward 100% without being able to fail the required gate.
+  simulator-uitests:
+    name: Simulator XCUITests (informational)
+    runs-on: macos-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: List available simulators
+        run: xcrun simctl list devices available
+
+      - name: Run XCUITests with coverage on a simulator
+        run: |
+          set -o pipefail
+          # Pick the first available iPhone simulator on the runner image.
+          DEVICE="$(xcrun simctl list devices available \
+            | grep -Eo 'iPhone [0-9][^(]*' | head -1 | sed 's/[[:space:]]*$//')"
+          echo "Using simulator: ${DEVICE:-iPhone 15}"
+          xcodebuild test \
+            -project percy-xcui-sdk.xcodeproj \
+            -scheme percy-xcui-sdk \
+            -destination "platform=iOS Simulator,name=${DEVICE:-iPhone 15}" \
+            -enableCodeCoverage YES \
+            -resultBundlePath TestResults.xcresult || true
+
+      - name: Report PercyXcui coverage from the simulator run
+        run: |
+          xcrun xccov view --report --only-targets TestResults.xcresult || true
